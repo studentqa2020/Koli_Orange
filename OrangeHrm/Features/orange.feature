@@ -1,3 +1,4 @@
+@Test
 Feature: OrangeHrm
 Background: User is LoggedIn
 Given User is on Orange Hrm webpage

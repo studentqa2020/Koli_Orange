@@ -1,28 +1,30 @@
 package com.generic;
 
-import java.util.concurrent.TimeUnit;
+
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.interactions.Actions;
 
 
 public class LogIn {
 	
 	
+	private static final int SECONDS = 0;
+	static WebDriver driver;
 
-	public static void main(String[] args) throws InterruptedException {
+	public static void main(String[] args) throws Throwable {
 		
 	System.setProperty("webdriver.chrome.driver", "./driver/chromedriver.exe");
 		
-	WebDriver driver = new ChromeDriver();		
+	driver = new ChromeDriver();		
 	driver.manage().window().maximize();		
 	System.out.println("Browser Open");
 	driver.get("https://opensource-demo.orangehrmlive.com/");
 	System.out.println("Get URL");
 	
 	//signin the web page
+	Thread.sleep(2000, SECONDS);
 	driver.findElement(By.xpath("//*[@id='txtUsername']")).sendKeys("Admin");
 	driver.findElement(By.id("txtPassword")).sendKeys("admin123");
 	System.out.println("Found Login Page");
@@ -42,7 +44,7 @@ public class LogIn {
 	System.out.println("Modules are there");	
 	System.out.println(driver.findElement(By.xpath("//*[@id='second']")).getText());
 			
-	Thread.sleep(2000);
+	Thread.sleep(5000);
 	driver.findElement(By.id("welcome")).click();
 	driver.findElement(By.className("panelContainer")).click();
 	
